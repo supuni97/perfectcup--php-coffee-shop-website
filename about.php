@@ -78,22 +78,25 @@
                     <hr>
                 </div>
                 <div class="col-sm-4 text-center">
-                    <img class="img-responsive" src="http://placehold.it/750x450" alt="">
+                    <img class="img-responsive" src="img/abt1.jpg" alt="">
                     <h3>John Smith
-                        <small>Job Title</small>
-                    </h3>
+        <small>Founder & Head Barista</small>
+    </h3>
+    <p>John is the heart and soul of Perfect Cup. With over 15 years of experience in the coffee industry, his passion for crafting the perfect brew is unparalleled. John's vision and dedication are the driving forces behind our exceptional coffee and warm, inviting atmosphere.</p>
                 </div>
                 <div class="col-sm-4 text-center">
-                    <img class="img-responsive" src="http://placehold.it/750x450" alt="">
-                    <h3>John Smith
-                        <small>Job Title</small>
-                    </h3>
+                    <img class="img-responsive" src="img/abt2.jpg" alt="">
+                    <h3>Emma Brown
+        <small>Co-Founder & Operations Manager</small>
+    </h3>
+    <p>Emma brings a wealth of knowledge in hospitality and management. Her expertise ensures that everything at Perfect Cup runs smoothly, from sourcing the finest beans to creating a welcoming space for our customers. Emma's attention to detail and commitment to quality are evident in every cup we serve.</p>
                 </div>
                 <div class="col-sm-4 text-center">
-                    <img class="img-responsive" src="http://placehold.it/750x450" alt="">
-                    <h3>John Smith
-                        <small>Job Title</small>
-                    </h3>
+                    <img class="img-responsive" src="img/abt3.jpg" alt="">
+                    <h3>Sarah Lee
+        <small>Marketing Manager</small>
+    </h3>
+    <p>Sarah is the creative mind behind our brand. With a background in marketing and a love for all things coffee, she brings our story to life through engaging campaigns and community events. Sarah's innovative ideas and enthusiasm help make Perfect Cup a beloved part of the local community.</p>
                 </div>
                 <div class="clearfix"></div>
             </div>
