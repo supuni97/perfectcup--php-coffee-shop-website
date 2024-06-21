@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Perfect Cup - Register</title>
+    <title>The Perfect Cup - Register</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -27,30 +27,99 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+	
+	<!-- jQuery -->
+    <script src="js/jquery.js"></script>
+	
+	<!-- Script -->
+	<script type="text/javascript">
+        $(document).ready(function () {
+
+            $("#register").click(function () {
+
+                fname = $("#fname").val();
+                lname = $("#lname").val();
+                email = $("#email").val();
+                password = $("#password").val();
+
+                $.ajax({
+                    type: "POST",
+                    url: "adduser.php",
+                    data: "fname=" + fname + "&lname=" + lname + "&email=" + email + "&password=" + password,
+                    success: function (html) {
+                        if (html == 'true') {
+
+                            $("#add_err2").html('<div class="alert alert-success"> \
+                                                 <strong>Account</strong> processed. \ \
+                                                 </div>');
+
+                            window.location.href = "index.php";
+
+                        } else if (html == 'false') {
+                            $("#add_err2").html('<div class="alert alert-danger"> \
+                                                 <strong>Email Address</strong> already in system. \ \
+                                                 </div>');                    
+
+                        } else if (html == 'fname') {
+                            $("#add_err2").html('<div class="alert alert-danger"> \
+                                                 <strong>First Name</strong> is required. \ \
+                                                 </div>');
+												 
+						} else if (html == 'lname') {
+                            $("#add_err2").html('<div class="alert alert-danger"> \
+                                                 <strong>Last Name</strong> is required. \ \
+                                                 </div>');
+
+                        } else if (html == 'eshort') {
+                            $("#add_err2").html('<div class="alert alert-danger"> \
+                                                 <strong>Email Address</strong> is required. \ \
+                                                 </div>');
+
+                        } else if (html == 'eformat') {
+                            $("#add_err2").html('<div class="alert alert-danger"> \
+                                                 <strong>Email Address</strong> format is not valid. \ \
+                                                 </div>');
+												 
+						} else if (html == 'pshort') {
+                            $("#add_err2").html('<div class="alert alert-danger"> \
+                                                 <strong>Password</strong> must be at least 4 characters . \ \
+                                                 </div>');
+
+                        } else {
+                            $("#add_err2").html('<div class="alert alert-danger"> \
+                                                 <strong>Error</strong> processing request. Please try again. \ \
+                                                 </div>');
+                        }
+                    },
+                    beforeSend: function () {
+                        $("#add_err2").html("loading...");
+                    }
+                });
+                return false;
+            });
+        });
+    </script>
 
 </head>
 
 <body>
 
-    <div class="brand">Perfect Cup</div>
+    <div class="brand">The Perfect Cup</div>
     <div class="address-bar">3481 Melrose Place | Beverly Hills, CA 90210 | 123.456.7890</div>
 
     <!-- Navigation -->
     <?php require_once 'nav.php'; ?>
 
-        <!-- /.container -->
-    </nav>
-
     <div class="container">
-
         <div class="row">
             <div class="box">
                 <div class="col-lg-12">
                     <hr>
-                    <h2 class="intro-text text-center">Register
+                    <h2 class="intro-text text-center">Registration
                         <strong>form</strong>
                     </h2>
-                    <hr>
+					<div id="add_err2"></div>
+                    <hr>       
                     <form role="form">
                         <div class="row">
                             <div class="form-group col-lg-4">
@@ -65,14 +134,13 @@
                                 <label>Email Address</label>
                                 <input type="email" id="email" name="email" maxlength="25" class="form-control">
                             </div>
-                            <div class="form-group col-lg-4">
+                            <div class="clearfix"></div>
+                            <div class="form-group col-lg-12">
                                 <label>Password</label>
                                 <input type="password" id="password" name="password" maxlength="10" class="form-control">
                             </div>
-                            
                             <div class="form-group col-lg-12">
-                                <input type="hidden" name="save" value="contact">
-                                <button type="submit" class="btn btn-default" id="register">Submit</button>
+                                <button type="submit" id="register" class="btn btn-default">Submit</button>
                             </div>
                         </div>
                     </form>
@@ -87,14 +155,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <p>Copyright &copy; Perfect Cup 2024</p>
+                    <p>Copyright &copy; The Perfect Cup 2016</p>
                 </div>
             </div>
         </div>
     </footer>
-
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
