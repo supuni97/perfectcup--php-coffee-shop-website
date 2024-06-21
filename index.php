@@ -97,7 +97,7 @@
                     <hr>
                     <img class="img-responsive img-border img-left" src="img/intro-pic.jpg" alt="">
                     <hr class="visible-xs">
-                    <p>At Perfect Cup, we believe in crafting more than just coffee; we create moments. Our passion for the perfect brew is reflected in every cup we serve. Whether you're a coffee connoisseur or just beginning your journey into the world of coffee, Perfect Cup is the place for you.For access to unlimited recipes you must register. Registration is free. Click gere to get started.</p>
+                    <p>At Perfect Cup, we believe in crafting more than just coffee; we create moments. Our passion for the perfect brew is reflected in every cup we serve. Whether you're a coffee connoisseur or just beginning your journey into the world of coffee, Perfect Cup is the place for you.For access to unlimited recipes you must register. Registration is free. Click here to get started.</p>
                 </div>
             </div>
         </div>
