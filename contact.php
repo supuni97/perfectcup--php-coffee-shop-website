@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>The Perfect Cup - Register</title>
+    <title>The Perfect Cup - Contact</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -31,59 +31,61 @@
 	<!-- jQuery -->
     <script src="js/jquery.js"></script>
 	
-	<!-- Script -->
-	<script type="text/javascript">
+		<script type="text/javascript">
         $(document).ready(function () {
 
-            $("#register").click(function () {
+            $("#contact").click(function () {
 
                 fname = $("#fname").val();
-                lname = $("#lname").val();
                 email = $("#email").val();
-                password = $("#password").val();
+                message = $("#message").val();
 
                 $.ajax({
                     type: "POST",
-                    url: "adduser.php",
-                    data: "fname=" + fname + "&lname=" + lname + "&email=" + email + "&password=" + password,
+                    url: "sendmsg.php",
+                    data: "fname=" + fname + "&email=" + email + "&message=" + message,
                     success: function (html) {
                         if (html == 'true') {
 
                             $("#add_err2").html('<div class="alert alert-success"> \
-                                                 <strong>Account</strong> processed. \ \
+                                                 <strong>Message Sent!</strong> \ \
                                                  </div>');
 
-                            window.location.href = "index.php";
-
-                        } else if (html == 'false') {
+                        } else if (html == 'fname_long') {
                             $("#add_err2").html('<div class="alert alert-danger"> \
-                                                 <strong>Email Address</strong> already in system. \ \
-                                                 </div>');                    
-
-                        } else if (html == 'fname') {
+                                                 <strong>First Name</strong> must cannot exceed 50 characters. \ \
+                                                 </div>');
+						
+						} else if (html == 'fname_short') {
                             $("#add_err2").html('<div class="alert alert-danger"> \
-                                                 <strong>First Name</strong> is required. \ \
+                                                 <strong>First Name</strong> must exceed 2 characters. \ \
                                                  </div>');
 												 
-						} else if (html == 'lname') {
+						} else if (html == 'email_long') {
                             $("#add_err2").html('<div class="alert alert-danger"> \
-                                                 <strong>Last Name</strong> is required. \ \
+                                                 <strong>Email</strong> must cannot exceed 50 characters. \ \
                                                  </div>');
-
-                        } else if (html == 'eshort') {
+						
+						} else if (html == 'email_short') {
                             $("#add_err2").html('<div class="alert alert-danger"> \
-                                                 <strong>Email Address</strong> is required. \ \
-                                                 </div>');
-
-                        } else if (html == 'eformat') {
-                            $("#add_err2").html('<div class="alert alert-danger"> \
-                                                 <strong>Email Address</strong> format is not valid. \ \
+                                                 <strong>Email</strong> must exceed 2 characters. \ \
                                                  </div>');
 												 
-						} else if (html == 'pshort') {
+						} else if (html == 'eformat') {
                             $("#add_err2").html('<div class="alert alert-danger"> \
-                                                 <strong>Password</strong> must be at least 4 characters . \ \
+                                                 <strong>Email</strong> format incorrect. \ \
                                                  </div>');
+												 
+						} else if (html == 'message_long') {
+                            $("#add_err2").html('<div class="alert alert-danger"> \
+                                                 <strong>Message</strong> must cannot exceed 50 characters. \ \
+                                                 </div>');
+						
+						} else if (html == 'message_short') {
+                            $("#add_err2").html('<div class="alert alert-danger"> \
+                                                 <strong>Message</strong> must exceed 2 characters. \ \
+                                                 </div>');
+
 
                         } else {
                             $("#add_err2").html('<div class="alert alert-danger"> \
@@ -111,24 +113,49 @@
     <?php require_once 'nav.php'; ?>
 
     <div class="container">
+
         <div class="row">
             <div class="box">
                 <div class="col-lg-12">
                     <hr>
-                    <h2 class="intro-text text-center">Registration
+                    <h2 class="intro-text text-center">Contact
+                        <strong>The Perfect Cup</strong>
+                    </h2>
+                    <hr>
+                </div>
+                <div class="col-md-8">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3304.4557903780455!2d-118.33880764857918!3d34.08346238050228!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2b8d3b1e0287d%3A0x9cc32be17df028b8!2sMelrose+Ave%2C+Beverly+Hills%2C+CA+90210%2C+USA!5e0!3m2!1sen!2sca!4v1458950947899" width="100%" height="400" frameborder="0" style="border:0" allowfullscreen></iframe>
+                </div>
+                <div class="col-md-4">
+                    <p>Phone:
+                        <strong>123.456.7890</strong>
+                    </p>
+                    <p>Email:
+                        <strong><a href="mailto:info@theperfectcup.com">info@theperfectcup.com</a></strong>
+                    </p>
+                    <p>Address:
+                        <strong>3481 Melrose Place
+                            <br>Beverly Hills, CA 90210</strong>
+                    </p>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="box">
+                <div class="col-lg-12">
+                    <hr>
+                    <h2 class="intro-text text-center">Contact
                         <strong>form</strong>
                     </h2>
-					<div id="add_err2"></div>
-                    <hr>       
+                    <hr>
+                    <div id="add_err2"></div>
                     <form role="form">
                         <div class="row">
                             <div class="form-group col-lg-4">
-                                <label>First Name</label>
+                                <label>Name</label>
                                 <input type="text" id="fname" name="fname" maxlength="25" class="form-control">
-                            </div>
-                            <div class="form-group col-lg-4">
-                                <label>Last Name</label>
-                                <input type="text" id="lname" name="lname" maxlength="25" class="form-control">
                             </div>
                             <div class="form-group col-lg-4">
                                 <label>Email Address</label>
@@ -136,11 +163,11 @@
                             </div>
                             <div class="clearfix"></div>
                             <div class="form-group col-lg-12">
-                                <label>Password</label>
-                                <input type="password" id="password" name="password" maxlength="10" class="form-control">
+                                <label>Message</label>
+                                <textarea class="form-control" id="message" name="message" maxlength="100" rows="6"></textarea>
                             </div>
-                            <div class="form-group col-lg-12">
-                                <button type="submit" id="register" class="btn btn-default">Submit</button>
+                            <div class="form-group col-lg-12">                           
+                                <button type="submit"  id="contact" class="btn btn-default">Submit</button>
                             </div>
                         </div>
                     </form>
